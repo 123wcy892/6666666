@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.16">
+  <POU Name="MAIN" Id="{84992476-be26-4e39-bd1c-ea53bae116a0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	power1:mc_power;
+	Axis1: AXIS_REF;
+	jog1:mc_jog;
+	moveobs:mc_moveabsolute;
+	moveobs1:mc_moveabsolute;
+	enable: BOOL;
+	Execute: BOOL;
+	JogBackwards: BOOL;
+	JogForward: BOOL;
+	Position: LREAL;
+	Velocity: LREAL;
+	Execute1: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[apower();
+	jog1(
+	Axis:=Axis1 , 
+	JogForward:=JogForward, 
+	JogBackwards:=JogBackwards , 
+	Mode:= , 
+	Position:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	moveobs(
+	Axis:=Axis1 , 
+	Execute:=Execute , 
+	Position:= Position, 
+	Velocity:=Velocity , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	moveobs1(
+	Axis:=Axis1 , 
+	Execute:=Execute1 , 
+	Position:= Position, 
+	Velocity:=Velocity , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	]]></ST>
+    </Implementation>
+    <Action Name="apower" Id="{0c1d298f-2ece-469f-8cc0-1a9e87f2a2c2}">
+      <Implementation>
+        <ST><![CDATA[power1(
+	Axis:=Axis1 , 
+	Enable:=enable , 
+	Enable_Positive:=1 , 
+	Enable_Negative:=1 , 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="26" Count="13" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="48" Count="14" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="73" Count="14" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="22" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.apower">
+      <LineId Id="2" Count="10" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
